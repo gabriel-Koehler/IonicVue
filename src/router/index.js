@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import Home from "../Views/Home.vue"
+import Home from "../Views/HomeView.vue"
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import Dashboard from '@/Views/Dashboard.vue';
+import Dashboard from '@/Views/DashboardView.vue';
 
 
 const router = createRouter({
