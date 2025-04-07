@@ -1,8 +1,4 @@
-import Vue from 'vue';
-import Home from "../Views/HomeView.vue"
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import Dashboard from '@/Views/DashboardView.vue';
-
 
 const router = createRouter({
   history: createWebHistory(
@@ -12,13 +8,19 @@ routes: [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: ()=>import('@/Views/HomeView.vue')
   }
   ,
   {
     path:'/teste',
     name:'teste',
-    component:Dashboard
+    component:()=> import('@/Views/DashboardView.vue')
+  }
+  ,
+  {
+    path:'/login',
+    name:'login',
+    component: ()=> import('@/Views/LoginView.vue')
   }
 ],
 });

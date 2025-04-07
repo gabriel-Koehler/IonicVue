@@ -6,8 +6,9 @@ import { IonContent, IonPage } from '@ionic/vue';
 <template>
   <IonPage>
     <IonContent>
-      <div>
-        page of more tests
+      <div class="p-2 shadow-md border-[var(--color-background-mute)] rounded-md border ">
+        <h3>page of more tests</h3>
+        <p>muito legal</p>
       </div>
     </IonContent>
   </IonPage>

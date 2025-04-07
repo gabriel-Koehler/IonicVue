@@ -1,19 +1,23 @@
 <script setup >
 import { IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/vue';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-let router=ref(null);
+const router=useRouter()
   onMounted(()=>{
-    router.value=useRouter()
-    console.log(router);
+    console.log(router.currentRoute.value.path);
+    
   })
+  const isLoginPage = computed(() => {
+    return router.currentRoute.value.path !== '/login';
+  });
+
 </script>
 <template>
   <IonApp>
-    <div class="ion-page">
-      <ion-header>
-        <ion-toolbar class=" flex">
+    <div class="ion-page p-1 ">
+      <ion-header v-if="isLoginPage" class="flex border-[var(--white-mute)] rounded-md border">
+        <!-- <ion-toolbar class="flex"> -->
           <ion-button  class="!bg-red-500" @click="router.push('/teste')" >
             teste
           </ion-button>
@@ -21,17 +25,12 @@ let router=ref(null);
             home
           </ion-button>
           <ion-title>Hello World</ion-title>
-        </ion-toolbar>
+        <!-- </ion-toolbar> -->
     </ion-header>
     <ion-content class="ion-padding w-full h-full">
-      <IonRouterOutlet >
+      <IonRouterOutlet class="" >
       </IonRouterOutlet>
     </ion-content>
-    <!-- <IonTabBar>
-      <IonTabButton>
-
-      </IonTabButton>
-    </IonTabBar> -->
   </div>
 </IonApp>
 </template>
